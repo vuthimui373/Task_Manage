@@ -7,6 +7,7 @@ import { TaskSelectField } from "./interfaces/_taskSelectField";
 import  PropTypes  from 'prop-types';
 import { Status } from "./enum/Status";
 import { Priority } from "./enum/Priority";
+import {Button} from '@mui/material';
 export const CreateTaskForm:FC=():ReactElement=>{
     return(
         <Box
@@ -67,8 +68,11 @@ export const CreateTaskForm:FC=():ReactElement=>{
                     ]}/>
                 </Stack>
 
-
+                <Button variant="contained" disableElevation>
+                    CREATE TASK
+                </Button>
             </Stack>
+
         </Box>
     );
 }
