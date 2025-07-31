@@ -1,10 +1,21 @@
-import { Request, Response, Router } from "express";
-// Kích hoạt bộ định tuyến
+import { Request, Response, Router } from 'express';
 
-export const taskRouter:Router=  Router();
+import { taskController } from './tasks.controller';
+import { createValidator } from './tasks.validator';
+import { validationResult } from 'express-validator';
+/*Fire the router function*/
+export const tasksRouter: Router = Router();
 
- // tạo mặc định 
-taskRouter.get('/tasks', (req: Request, res: Response) => {
-   res.send('Hello API!');
- });
+// Create a default route.
+tasksRouter.get('/tasks', taskController.getAll);
+
+
+tasksRouter.post(
+  '/tasks',createValidator, 
+  async (req: Request, res: Response)=>{
+    const errors= validationResult(req);
+    if(!errors.isEmpty()){
+      return res.status(400).json({errors:errors.array()});
+    }
+}); 
 

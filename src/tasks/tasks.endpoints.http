@@ -1,0 +1,16 @@
+### Fetch all tasks
+GET http://localhost:3200/tasks
+Content-Type: application/json
+
+### Creare a new task
+
+POST http://localhost:3200/tasks
+Content-Type: application/json
+
+{
+    "title":"Molor set semet"
+    "date":"2025-02-28"
+    "description":"Làm xong API và định nghĩa cơ bản API"
+    "prioirity":"normal",
+    "status": "todo"
+}
